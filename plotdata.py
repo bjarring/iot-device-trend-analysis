@@ -73,10 +73,8 @@ def Device_data_per_day(inputDeviceId, inputDate):
             #if deivceId matches user provided device ID, append data to dataArray
             if deviceID == inputDeviceId:
                 timeStamp = data["rows"][x]["doc"]["timestamp"]
-                activeClients = data["rows"][x]["doc"]["data"]["activeClients"]
-                deviceCount = data["rows"][x]["doc"]["data"]["deviceCount"]
-                connections = data["rows"][x]["doc"]["data"]["connections"]
-                jsonData = {"deviceID": deviceID, "timeStamp": timeStamp, "activeClients": activeClients, "deviceCount": deviceCount , "connections": connections}
+                bpm = data["rows"][x]["doc"]["data"]["BPM"]
+                jsonData = {"deviceID": deviceID, "timeStamp": timeStamp, "BPM": bpm}
                 dataArray.append(jsonData)
 
     #disconnect from cloudant db

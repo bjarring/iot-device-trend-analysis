@@ -102,40 +102,24 @@ function plotPerDay(data) {
 
   //initialize the fields data
   var timeStampArray = [];
-  var activeClientsArray = [];
-  var deviceCountArray = [];
-  var connectionsArray = [];
+  var bpmArray = [];
+
 
   //retrieve the fields data
   for (var i = 0; i < arrayLength; i++) {
     timeStampArray.push(sort_data[i].timeStamp)
-    activeClientsArray.push(sort_data[i].activeClients)
-    deviceCountArray.push(sort_data[i].deviceCount)
-    connectionsArray.push(sort_data[i].connections)
+    bpmArray.push(sort_data[i].BPM)
   }
 
   //define traces
-  var activeClientsTrace = {
+  var bpmTrace = {
     x: timeStampArray,
-    y: activeClientsArray,
+    y: bpmArray,
     type: "scatter",
-    name: "activeClients"
+    name: "BPM"
   };
-  var deviceCountTrace = {
-    x: timeStampArray,
-    y: deviceCountArray,
-    type: "scatter",
-    name: "deviceCount",
-    visible: "legendonly"
-  };
-  var connectionsTrace = {
-    x: timeStampArray,
-    y: connectionsArray,
-    type: "scatter",
-    name: "connections",
-    visible: "legendonly"
-  };
-  var data = [activeClientsTrace, deviceCountTrace, connectionsTrace];
+
+  var data = [bpmTrace];
 
   //add the title
   if (deviceId.length > 9) {
